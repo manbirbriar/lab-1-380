@@ -251,6 +251,7 @@ public class Application {
         return Math.tan(angleRadians);
     }
     
+    // Permutations function
     public static int permutations(int totalItems, int selectedItems) {
         if (selectedItems < 0 || selectedItems > 100) {
             System.err.println("Error: Number of selected items must be between 0 and 100.");
@@ -267,5 +268,24 @@ public class Application {
         }
         return permutation;
     }
-
+    
+    // NonRecursive Permutations function
+    public static int permutationsNonRecursive(int totalItems, int selectedItems) {
+  
+        if (selectedItems < 0 || selectedItems > 100) {
+            System.err.println("Error: Number of selected items must be between 0 and 100.");
+            return -1;
+        }
+        if (selectedItems > totalItems) {
+            System.err.println("Error: Number of selected items cannot exceed total items in the array.");
+            return -1;
+        }
+        
+        int permutation = 1;
+        for (int i = totalItems; i > totalItems - selectedItems; i--) {
+            permutation *= i;
+        }
+        
+        return permutation;
+    }
 }

@@ -62,6 +62,9 @@ public class Application {
 	            case "pow":
 	                System.out.println("Result: " + power(num1,num2));
 	                break;
+	            case "permutations":
+	                System.out.println("Result: " + permutations(( int )num1,( int )num2));
+	                break;  
 	            default:
 	                System.out.println("Invalid operation");    
 	                
@@ -125,6 +128,9 @@ public class Application {
                 case "pow":
                     System.out.println("Result: " + power(num1, num2));
                     break;
+	            case "permutations":
+	                System.out.println("Result: " + permutations(( int )num1,( int )num2));
+	                break;  
                 default:
                     System.out.println("Invalid operation.");
                     break;
@@ -245,5 +251,21 @@ public class Application {
         return Math.tan(angleRadians);
     }
     
-    
+    public static int permutations(int totalItems, int selectedItems) {
+        if (selectedItems < 0 || selectedItems > 100) {
+            System.err.println("Error: Number of selected items must be between 0 and 100.");
+            return -1;
+        }
+        if (selectedItems > totalItems) {
+            System.err.println("Error: Number of selected items cannot exceed total items in the array.");
+            return -1;
+        }
+        
+        int permutation = 1;
+        for (int i = totalItems; i > totalItems - selectedItems; i--) {
+            permutation *= i;
+        }
+        return permutation;
+    }
+
 }

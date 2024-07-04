@@ -1,3 +1,15 @@
+ /**
+* <h1 > Application.java </h1 >
+ * <p>
+ * This class is designed for calculator in Java.
+ * It is part of Lab 1 Exercise E.
+ *</p>
+ * <p> <b> Submission Date : </b> July 4 , 2024 </p>
+ *
+ * @author Manbir Briar
+ * @version 3.0
+ */
+
 import java.util.Scanner;
 
 public class Application {

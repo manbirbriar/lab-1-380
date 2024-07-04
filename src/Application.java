@@ -24,63 +24,79 @@ public class Application {
     }
 
     // Processes the command-line arguments.
-
     private static void processArgs(String[] args) {
         // Check if the number of arguments is sufficient
-        if (args.length < 3) {
-            System.out.println("Insufficient arguments. Usage: <operation> <operand1> <operand2>");
+        if (args.length < 2) {
+            System.out.println("Insufficient arguments. Usage: <operation> <operand1> <operand2> or <operation> <operand1>");
             return;
         }
-
+        
         // Parse the operation and operands from the arguments
         String operation = args[0];
         double num1 = Double.parseDouble(args[1]);
-        double num2 = Double.parseDouble(args[2]);
-
-        // Perform the operation based on the provided arguments
-        switch (operation.toLowerCase()) {
-            case "add":
-                System.out.println("Result: " + add(num1, num2));
-                break;
-            case "subtract":
-                System.out.println("Result: " + subtract(num1, num2));
-                break;
-            case "multiply":
-                System.out.println("Result: " + multiply(num1, num2));
-                break;
-            case "divide":
-                if (num2 == 0) {
-                    System.out.println("Error: Division by zero");
-                } else {
-                    System.out.println("Result: " + divide(num1, num2));
-                }
-                break;
-            case "factorial":
-            	System.out.println(" Result : " + factorial (( int )num1)) ;
-                break;
-            case "pow":
-                System.out.println("Result: " + power(num1,num2));
-                break;
-            case "sqrt":
-                System.out.println("Result: " + sqrt(num1));
-                break;
-            case "log":
-                System.out.println("Result: " + log(num1));
-                break;
-            case "log10":
-                System.out.println("Result: " + log10(num1));
-                break;
-            case "sin":
-                System.out.println("Result: " + sin(num1));
-                break;
-            case "cos":
-                System.out.println("Result: " + cos(num1));
-                break;
-            case "tan":
-                System.out.println("Result: " + tan(num1));
-                break;
-            default:
-                System.out.println("Invalid operation");
+        
+        //Perform the operation based on the provided arguments
+        // If requires 2 operands 
+        if (args.length == 3) {
+        	
+            double num2 = Double.parseDouble(args[2]);
+            
+            switch (operation.toLowerCase()) {
+            
+	            case "add":
+	                System.out.println("Result: " + add(num1, num2));
+	                break;
+	            case "subtract":
+	                System.out.println("Result: " + subtract(num1, num2));
+	                break;
+	            case "multiply":
+	                System.out.println("Result: " + multiply(num1, num2));
+	                break;
+	            case "divide":
+	                if (num2 == 0) {
+	                    System.out.println("Error: Division by zero");
+	                } else {
+	                    System.out.println("Result: " + divide(num1, num2));
+	                }
+	                break;
+	            case "pow":
+	                System.out.println("Result: " + power(num1,num2));
+	                break;
+	            default:
+	                System.out.println("Invalid operation");    
+	                
+            	}
+            //if requires 1
+        	}else {
+		
+		        switch (operation.toLowerCase()) {
+		            case "factorial":
+		            	System.out.println(" Result : " + factorial (( int )num1)) ;
+		                break;
+		            case "sqrt":
+		                System.out.println("Result: " + sqrt(num1));
+		                break;
+		            case "log":
+		                System.out.println("Result: " + log(num1));
+		                break;
+		            case "log10":
+		                System.out.println("Result: " + log10(num1));
+		                break;
+		            case "sin":
+		            	num1 = Math.toRadians(num1);
+		                System.out.println("Result: " + sin(num1));
+		                break;
+		            case "cos":
+		            	num1 = Math.toRadians(num1);
+		                System.out.println("Result: " + cos(num1));
+		                break;
+		            case "tan":
+		            	num1 = Math.toRadians(num1);
+		                System.out.println("Result: " + tan(num1));
+		                break;
+		            default:
+		                System.out.println("Invalid operation");
+		        }
         }
     }
 
@@ -129,12 +145,15 @@ public class Application {
                     System.out.println("Result: " + log10(num));
                     break;
                 case "sin":
+                	num = Math.toRadians(num);
                     System.out.println("Result: " + sin(num));
                     break;
                 case "cos":
+                	num = Math.toRadians(num);
                     System.out.println("Result: " + cos(num));
                     break;
                 case "tan":
+                	num = Math.toRadians(num);
                     System.out.println("Result: " + tan(num));
                     break;
                 case "factorial":
